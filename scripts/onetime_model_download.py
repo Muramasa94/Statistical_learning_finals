@@ -1,8 +1,8 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModel, AutoTokenizer
 import os
 
-MODEL_NAME = "gpt2"
-SAVE_DIR = "./models/gpt2"
+MODEL_NAME = "distilbert/distilbert-base-uncased"
+SAVE_DIR = "./models/distilbert-base-uncased"
 
 def main():
     # Ensure the directory exists
@@ -16,14 +16,14 @@ def main():
     print("✅ Tokenizer saved.")
 
     # Load and save model
-    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
+    model = AutoModel.from_pretrained(MODEL_NAME)
     model.save_pretrained(SAVE_DIR)
     print("✅ Model saved.")
 
     # Test loading the saved model
     _ = AutoTokenizer.from_pretrained(SAVE_DIR)
-    _ = AutoModelForCausalLM.from_pretrained(SAVE_DIR)
-    print("🎉 Model and tokenizer successfully saved to ./models/gpt2")
+    _ = AutoModel.from_pretrained(SAVE_DIR)
+    print("🎉 Model and tokenizer successfully saved to ./models/distilbert-base-uncased")
 
 if __name__ == "__main__":
     main()

@@ -1,7 +1,11 @@
+# Ensure python version is 3.12 for maximum compatibility
+# Install the following packages in your Python environment:
 # pip install ipykernel
 # pip install torch==2.3.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 # pip install -r requirements.txt
-transformers==4.40.1 # Using TinyLlama model
+
+# Machine Learning and Deep Learning Libraries
+transformers==4.40.1 # Using distilbert-base-uncased model
 datasets==2.19.1 # Load and preprocess datasets
 tokenizers==0.19.1 # Fast tokenization
 accelerate==0.30.1 # Manage training configurations
@@ -12,3 +16,8 @@ jupyterlab==4.1.8 # Notebook support
 rich==13.7.1
 numpy==1.26.4 # Downgrade numpy to 1.26.4
 pandas==2.1.3 # Data manipulation
+
+# Web famework
+Flask==3.1.1
+Flask-RESTful==0.3.10 # REST API support
+gunicorn==23.0.0 # WSGI HTTP server for UNIX
