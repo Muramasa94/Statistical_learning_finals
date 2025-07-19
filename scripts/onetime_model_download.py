@@ -1,8 +1,8 @@
 from transformers import AutoModel, AutoTokenizer
 import os
 
-MODEL_NAME = "distilbert/distilbert-base-uncased"
-SAVE_DIR = "./models/distilbert-base-uncased"
+MODEL_NAME = "google-bert/bert-base-uncased"
+SAVE_DIR = "./models/bert-base-uncased"
 
 def main():
     # Ensure the directory exists
@@ -23,7 +23,7 @@ def main():
     # Test loading the saved model
     _ = AutoTokenizer.from_pretrained(SAVE_DIR)
     _ = AutoModel.from_pretrained(SAVE_DIR)
-    print("🎉 Model and tokenizer successfully saved to ./models/distilbert-base-uncased")
+    print(f"🎉 Model and tokenizer successfully saved to {SAVE_DIR}")
 
 if __name__ == "__main__":
     main()
