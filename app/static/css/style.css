@@ -1,0 +1,58 @@
+@import "color.css";
+
+body {
+    background-color: var(--catppuccin-base);
+    color: var(--catppuccin-text);
+}
+
+h1 {
+    margin: 20px 0px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--catppuccin-subtext1);
+    font-size: 48px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.text-muted {
+    color: var(--catppuccin-subtext0) !important;
+}
+
+.row {
+    margin-top: 40px;
+}
+
+.form-label {
+    font-size: 24px;
+}
+
+.form-control {
+    background-color: var(--catppuccin-surface0);
+    color: var(--catppuccin-text);
+    border: 2px solid var(--catppuccin-surface2);
+}
+
+.form-control:focus {
+    background-color: var(--catppuccin-surface1);
+    border-color: var(--catppuccin-blue);
+    box-shadow: 0 0 5px var(--catppuccin-blue);
+    color: var(--catppuccin-text);
+    caret-color: var(--catppuccin-text);
+}
+
+.form-control::placeholder {
+    color: var(--catppuccin-subtext0);
+}
+
+.card {
+    background-color: var(--catppuccin-surface0);
+    border: 1px solid var(--catppuccin-surface2);
+    border-radius: 8px;
+    padding: 20px;
+    color: var(--catppuccin-text);
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+}
