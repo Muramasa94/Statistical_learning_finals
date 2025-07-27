@@ -29,15 +29,28 @@ class EmotionAnalyzer:
         return [s.strip() for s in sentences if s.strip()]
 
     def analyze(self, texts):
-        results = []
+        results_per_sentence = []
+        overall_emotions = {emotion: 0.0 for emotion in EMOTIONS}
         for text in texts:
+            # Tokenize and analyze the text
             inputs = self.tokenizer(text, return_tensors='pt', truncation=True, padding=True)
             outputs = self.model(**inputs)
             logits = outputs.logits
             probabilities = torch.sigmoid(logits).cpu().detach().numpy()
             emotion_scores = {emotion: round(float(prob), 4) for emotion, prob in zip(EMOTIONS, probabilities[0])}
-            results.append({
+            # Update overall emotions
+            for emotion, score in emotion_scores.items():
+                overall_emotions[emotion] += score
+            results_per_sentence.append({
                 'text': text,
                 'emotions': emotion_scores
             })
-        return results
+            
+            
+        # Calculate overall emotion probabilities by averaging
+        num_sentences = len(results_per_sentence)
+        if num_sentences > 0:
+            overall_emotions = {emotion: round(score / num_sentences, 4) for emotion, score in overall_emotions.items()}
+        
+        # Return both per-sentence results and overall emotions
+        return results_per_sentence, overall_emotions

@@ -12,5 +12,16 @@ async function analyzeText() {
 
     const result = await response.json();
 
+    // Check if the response is successful
+    if (!response.ok) {
+        // Show error popup
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: result.error || 'An error occurred!',
+        });
+        return;
+    }
+
     console.log(result); // For debugging
 }
