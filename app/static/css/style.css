@@ -56,3 +56,20 @@ h1 {
     font-size: 24px;
     font-weight: bold;
 }
+
+.list-group {
+    background-color: var(--catppuccin-surface0);
+}
+
+.list-group-item {
+    background-color: var(--catppuccin-surface0);
+    color: var(--catppuccin-text);
+}
+
+.rounded-pill {
+    background-color: var(--catppuccin-mantle);
+    color: var(--catppuccin-text);
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 18px;
+}

@@ -38,19 +38,29 @@ class EmotionAnalyzer:
             logits = outputs.logits
             probabilities = torch.sigmoid(logits).cpu().detach().numpy()
             emotion_scores = {emotion: round(float(prob), 4) for emotion, prob in zip(EMOTIONS, probabilities[0])}
+            # Scale down neutral emotion score
+            emotion_scores['neutral'] = round(emotion_scores['neutral'] * 0.9, 4)
+            
             # Update overall emotions
             for emotion, score in emotion_scores.items():
                 overall_emotions[emotion] += score
-            results_per_sentence.append({
-                'text': text,
-                'emotions': emotion_scores
-            })
+                
+            # Sort emotions by score in descending order and pick out the top 5 to store in results
+            top_emotions = dict(sorted(emotion_scores.items(), key=lambda item: item[1], reverse=True)[:5])
+            results_per_sentence.append(
+                {
+                    'text': text,
+                    'emotions': top_emotions
+                }
+            )
             
             
         # Calculate overall emotion probabilities by averaging
         num_sentences = len(results_per_sentence)
         if num_sentences > 0:
             overall_emotions = {emotion: round(score / num_sentences, 4) for emotion, score in overall_emotions.items()}
+        # Sort overall emotions by score in descending order
+        overall_emotions = dict(sorted(overall_emotions.items(), key=lambda item: item[1], reverse=True))
         
         # Return both per-sentence results and overall emotions
         return results_per_sentence, overall_emotions

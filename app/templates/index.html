@@ -35,19 +35,9 @@
                     <div class="card-body">
                         <h5 class="card-title text-center mb-3">Emotion Breakdown</h5>
 
-                        {% if result %}
-                            <p><strong>Overall Emotion:</strong> {{ result.overall }}</p>
-                            <ul class="list-group list-group-flush">
-                                {% for emotion, percent in result.breakdown.items() %}
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        {{ emotion }}
-                                        <span class="badge bg-secondary rounded-pill">{{ percent }}%</span>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
+                            <!-- Emotion Results Dynamically displayed using javascript here-->
+                             
                             <p class="text-muted text-center">Results will appear here after analysis.</p>
-                        {% endif %}
                     </div>
                 </div>
             </div>
