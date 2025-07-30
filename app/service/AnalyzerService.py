@@ -25,7 +25,7 @@ class EmotionAnalyzer:
         text = re.sub(r'\n\s*\n', '\n\n', text)
         
         # Split sentences using regex
-        sentences = re.split(r'[.!?;]', text)
+        sentences = re.split(r'(?<=[.!?;])\s+', text)
         return [s.strip() for s in sentences if s.strip()]
 
     def analyze(self, texts):

@@ -73,3 +73,12 @@ h1 {
     border-radius: 50px;
     font-size: 18px;
 }
+
+.sentence-hover {
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.sentence-hover.highlighted {
+    background: var(--catppuccin-yellow);
+    color: var(--catppuccin-crust);
+}
