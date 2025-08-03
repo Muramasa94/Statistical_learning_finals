@@ -26,5 +26,4 @@ share/python-wheels/
 .installed
 
 # transformer models
-models/
-model/
+trained_emotion_model/
