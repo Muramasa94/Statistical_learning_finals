@@ -46,7 +46,7 @@ A web application for fine-grained emotion analysis of text using a transformer-
    ```
 
 4. **Download/prepare the model**
-   - Download trained model folder at `https://drive.google.com/drive/folders/1NmPrm5Kpm2sCWrlVH4Pb_z7RxhA5QzV8?usp=sharing`
+   - Download trained_emotion_model folder at `https://drive.google.com/drive/folders/1NmPrm5Kpm2sCWrlVH4Pb_z7RxhA5QzV8?usp=sharing`
    - Place the model folder in the `app/model` folder, so that the directory looks like `app/model/trained_emotion_model/<6_files_in_model_folder>`.
    - If you want to re-run the report notebook, also put the model folder in the `models` directory.
    - To download a base model, you can use [`scripts/onetime_model_download.py`](scripts/onetime_model_download.py).
